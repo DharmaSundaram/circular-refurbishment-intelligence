@@ -2,8 +2,8 @@ services:
   - type: web
     name: circular-refurbishment-intelligence
     env: python
-    buildCommand: pip install -r frontend/requirements.txt
-    startCommand: cd frontend && flask db upgrade && gunicorn --bind 0.0.0.0:$PORT --workers 2 --threads 4 --timeout 60 app:app
+    buildCommand: pip install -r backend/requirements.txt
+    startCommand: cd backend && flask db upgrade && gunicorn --bind 0.0.0.0:$PORT --workers 2 --threads 4 --timeout 60 app:app
     healthCheckPath: /api/health
     plan: standard
     envVars:
