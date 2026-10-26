@@ -5,7 +5,10 @@ Serves the React UI, provides REST APIs, database models, and partner integratio
 
 from pathlib import Path
 from flask import Flask, abort, jsonify, send_from_directory
-from werkzeug.utils import safe_join
+try:
+    from werkzeug.security import safe_join
+except ImportError:
+    from werkzeug.utils import safe_join
 from sqlalchemy import text
 
 from config import Config
